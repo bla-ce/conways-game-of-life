@@ -1,6 +1,8 @@
 #ifndef LIFE_H
 #define LIFE_H
 
+#include <iostream>
+
 // Grid size
 constexpr int GRID_ROWS{70};
 constexpr int GRID_COLS{245};

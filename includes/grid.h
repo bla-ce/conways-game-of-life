@@ -11,13 +11,17 @@ public:
 
   /*
   * Function: Randomly populate grid with alive/dead cells
+  * Params: probability for a cell to be alive at generation 1
   */
-  void populate_grid();
+  void populate_grid(std::string generation_probability);
 
   /*
   * Function: Create copy of updated cells 
+  * Params: user input parameter
+  *   Birth patameter: number of neighbours reauired for the cell to survive into the next generation
+  *   Survive patameter: number of neighbours reauired for the cell to reborn the next generation 
   */
-  void next_generation();
+  void next_generation(std::string birth_paramater, std::string survive_parameter);
 
   /*
   * Function: update grid cells with next generation
@@ -36,4 +40,9 @@ public:
   * Function: display grid on screen
   */
   void display() const;
+
+  /*
+  * Function : clear entire screen
+  */
+  void clear() const;
 };
