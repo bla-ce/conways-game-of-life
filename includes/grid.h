@@ -13,7 +13,7 @@ public:
   * Function: Randomly populate grid with alive/dead cells
   * Params: probability for a cell to be alive at generation 1
   */
-  void populate_grid(std::string generation_probability);
+  void populate_grid(int generation_probability);
 
   /*
   * Function: Create copy of updated cells 

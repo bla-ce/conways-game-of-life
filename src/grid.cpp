@@ -13,13 +13,13 @@ Grid::Grid()
   } 
 }
 
-void Grid::populate_grid(std::string generation_probability)
+void Grid::populate_grid(int generation_probability)
 {
   for(int row{1}; row < GRID_ROWS; row++)
   {
     for(int col{1}; col < GRID_COLS; col++)
     {
-      cells[row][col].set_alive( (generate_random(1, 100 / std::stoi(generation_probability) ) == 1 ? true : false) ); // populate grid with 20% chance of alive cell
+      cells[row][col].set_alive( (generate_random(1, 100 / generation_probability ) == 1 ? true : false) ); // populate grid with 20% chance of alive cell
     }
   }
 }

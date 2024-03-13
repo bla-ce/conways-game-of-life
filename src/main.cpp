@@ -1,4 +1,7 @@
 #include <iostream>
+#include <limits>
+#include <regex>
+#include <string>
 #include <unistd.h>
 
 #include "../includes/grid.h"
@@ -15,8 +18,12 @@ int main()
   std::cin.get();
 
   std::string generation_probability{};
-  std::cout << "\tProabability for a cell to be alive at generation 1 (Enter 20 for 20%): ";
-  std::cin >> generation_probability;
+  std::regex regex_pattern("-?[0-9]+.?[0-9]+");
+
+  do {
+    std::cout << "\tProabability for a cell to be alive at generation 1 (Enter 20 for 20%): ";
+    std::cin >> generation_probability;
+  }while (!regex_match(generation_probability, regex_pattern) || std::stoi(generation_probability) > 100 || std::stoi(generation_probability) < 0);
 
   std::string birth_parameter{};
   std::cout << "\n\tSimulation Parameters:\n\tFor each parameter, pleaser enter the corresponding number of neighbours required to satisfy the parameter\n";
@@ -29,7 +36,7 @@ int main()
 
 
   // Randomly Populate Grid
-  grid.populate_grid(generation_probability);
+  grid.populate_grid(std::stoi(generation_probability));
 
   // Display grid
   grid.display();
